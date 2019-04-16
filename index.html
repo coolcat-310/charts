@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!--<canvas id="myChart" width="200" height="200"></canvas>-->
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <canvas id="myChart" width="undefined" height="undefined"></canvas>
+        </div>
+    </div>
+    <div class="row"> <div class="col">
+        <canvas id="chart" width="undefined" height="undefined"></canvas>
+    </div></div>
+</div>
+<script>
+    var ctx = document.getElementById('chart');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul" , "Aug", "Sep", "Oct", "Nov", "Dec"],
+            datasets: [{
+                label: "TRADE",
+                data : [11690, 15884, 11461, 12288, 16690, 12529, 15160, 16790, 13574, 16383, 15397, 14921],
+                fill : false,
+                borderColor: "rgb(75, 192,192)",
+                lineTension:0.1
+            },{
+                label: "ICO",
+                data : [ 962, 1552, 1327, 2103, 2522, 2103, 2410, 2990, 2410, 2635, 2461, 2179],
+                fill : true,
+                borderColor: "rgb(255, 102, 102)",
+                lineTension: 0
+            },{
+                label: "TOTAL",
+                data : [12652, 17436, 12788, 14392, 19212, 14633, 17570, 19781, 15984, 19018, 17858, 17100],
+                fill : false,
+                borderColor: "rgb(230, 217, 255)",
+                lineTension: 0.2
+            }]
+        },
+        options:{
+            title: {
+                fontcolor: '#784',
+                display: true,
+                text: 'Hello World line chart',
+            },
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Dollars (US)"
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Months"
+                    }
+                }]
+            }
+        }
+    });
+    console.log(chart.data.datasets[0].data.push(90));
+    console.log(chart.data.datasets[1].data.push(80));
+
+    var ctx1 = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }],
+                xAxes: [{
+                    gridLines: {
+                       display: false
+                    }
+                }]
+            },
+            title: {
+                display: true,
+                text: 'Colors Bar Graph'
+            }
+        }
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
